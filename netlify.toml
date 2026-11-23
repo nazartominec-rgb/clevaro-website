@@ -1,0 +1,27 @@
+# Konfiguracja Netlify dla strony CLEVARO.
+# Strona jest statyczna – nie wymaga budowania.
+
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Nagłówki bezpieczeństwa dla wszystkich stron.
+# img-src dopuszcza images.pexels.com, bo zdjęcia usług są obecnie ładowane z Pexels.
+# Gdy zdjęcia zostaną przeniesione do public/, można usunąć ten wpis.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https://images.pexels.com; script-src 'self'; style-src 'self'; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+
+# Czcionki nie zmieniają się – można je długo przechowywać w pamięci podręcznej.
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
