@@ -10,6 +10,7 @@ public/                       pliki strony (publikowane przez Netlify)
   polityka-prywatnosci.html   polityka prywatności (projekt – do uzupełnienia)
   cookies.html                polityka cookies (projekt – do uzupełnienia)
   404.html                    strona błędu 404
+  favicon.svg                 ikona strony (logo CLEVARO)
   style.css                   style
   script.js                   menu, szybki kontakt, ustawienia cookies, formularz
   fonts/                      czcionka Inter (SIL OFL 1.1, LICENSE-Inter.txt)
